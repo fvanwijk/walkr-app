@@ -1,7 +1,7 @@
 <div class="ui vertical segment">
   <div class="ui container">
     <div class="ui secondary inverted pointing menu">
-      <a class="item" routerLink="/" routerLinkActive="active">Walkr API</a>
+      <a class="item" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Walkr API</a>
       <a class="item" routerLink="/planets" routerLinkActive="active">Planets</a>
       <a class="item" routerLinkActive="active">Ships</a>
       <a class="item" routerLinkActive="active">Missions</a>
