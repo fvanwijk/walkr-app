@@ -8,10 +8,17 @@ import { ApiService } from './api.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PlanetListComponent } from './planets/planet-list/planet-list.component';
+import { PlanetsResolve } from './planets/planets-resolve.service';
 import { PlanetService } from './planets/planet.service';
 
 const appRoutes: Routes = [
-  { path: 'planets', component: PlanetListComponent },
+  {
+    path: 'planets',
+    component: PlanetListComponent,
+    resolve: {
+      planets: PlanetsResolve
+    }
+  },
   { path: '', component: HomeComponent }
 ];
 
@@ -27,7 +34,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ApiService],
+  providers: [ApiService, PlanetService, PlanetsResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,6 @@
 <h1>Planets</h1>
+<ul class="ui inverted list">
+  <li class="item" *ngFor="let planet of planets">
+    <a [href]="planet.url">{{planet.name}}</a>
+  </li>
+</ul>
