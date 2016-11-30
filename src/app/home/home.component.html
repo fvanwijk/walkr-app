@@ -1,0 +1,23 @@
+<h1>Walkr API</h1>
+<p>Running Walkr API server on {{host}}</p>
+
+<h2>User info</h2>
+<table *ngIf="user">
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>{{user.name}}</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>{{user.title}}</td>
+    </tr>
+    <tr>
+      <td>Level</td>
+      <td>{{user.level}}</td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="!user">
+  <p>There is no user info available.</p>
+</div>
