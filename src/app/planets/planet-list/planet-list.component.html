@@ -1,6 +1,47 @@
 <h1>Planets</h1>
-<ul class="ui inverted list">
-  <li class="item" *ngFor="let planet of planets">
-    <a [href]="planet.url">{{planet.name}}</a>
-  </li>
-</ul>
+<div class="ui segment">
+  <div class="ui divided items">
+    <div class="item" *ngFor="let planet of planets">
+      <div class="image">
+        <img *ngIf="planet.image_url" [src]="planet.image_url" [alt]="planet.name">
+      </div>
+      <div class="content">
+        <div class="ui two column grid">
+          <div class="column">
+            <h3 class="ui header">
+              <a class="ui circular horizontal label" [ngClass]="typeColors[planet.type]">#{{planet.code}}</a>
+              {{planet.name}}
+            </h3>
+            <div class="meta">
+              <span>{{planet.gravity}}</span>
+            </div>
+            <div class="description">
+              <p>{{planet.description}}</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui secondary segment">
+              <h4 class="ui header">
+                <div class="ui sub header">Creature</div>
+                <img *ngIf="planet.creature_image_url"
+                     class="ui avatar image"
+                     [src]="planet.creature_image_url"
+                     [alt]="planet.creature">
+                {{planet.creature}}
+              </h4>
+              <p>{{planet.creature_description}}</p>
+              <h4 class="ui header">
+                <div class="ui sub header">Resource</div>
+                <img *ngIf="planet.resource_image_url"
+                     class="ui avatar image"
+                     [src]="planet.resource_image_url"
+                     [alt]="planet.resource">
+                {{planet.resource}}
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

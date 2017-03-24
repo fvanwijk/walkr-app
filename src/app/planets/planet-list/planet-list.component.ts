@@ -10,12 +10,22 @@ import { ActivatedRoute } from '@angular/router';
 export class PlanetListComponent implements OnInit {
 
   planets: [Planet];
+  private typeColors: {};
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.data.subscribe((data: { planets: { results: [Planet] } }) => {
-      this.planets = data.planets.results;
+    this.route.data.subscribe(data => {
+      this.planets = data.planets;
+      this.typeColors = {
+        Animal: 'purple',
+        Cuisine: 'red',
+        Element: 'blue',
+        Festival: 'orange',
+        Plant: 'green',
+        Solar: 'yellow',
+        Unique: 'grey'
+      }
     });
   }
 
