@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { PlanetListComponent } from './planets/planet-list/planet-list.component';
 import { PlanetsResolve } from './planets/planets-resolve.service';
 import { PlanetService } from './planets/planet.service';
+import { ShipsResolve } from './ships/ships-resolve.service';
+import { ShipListComponent } from './ships/ship-list/ship-list.component';
+import { ShipService} from './ships/ship.service';
 
 const appRoutes: Routes = [
   {
@@ -19,6 +22,13 @@ const appRoutes: Routes = [
       planets: PlanetsResolve
     }
   },
+  {
+    path: 'ships',
+    component: ShipListComponent,
+    resolve: {
+      ships: ShipsResolve
+    }
+  },
   { path: '', component: HomeComponent }
 ];
 
@@ -26,7 +36,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    PlanetListComponent
+    PlanetListComponent,
+    ShipListComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +45,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ApiService, PlanetService, PlanetsResolve],
+  providers: [ApiService, PlanetService, PlanetsResolve, ShipService, ShipsResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
