@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    this.http.get(this.apiUrl + (this.query || this.placeholder))
+    this.http.get(`${this.apiUrl}${this.query || this.placeholder}`)
       .map(res => res.json())
       .subscribe(results => {
         this.result = JSON.stringify(results, undefined, 2);
