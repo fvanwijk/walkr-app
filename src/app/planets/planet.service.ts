@@ -8,7 +8,7 @@ export class PlanetService {
 
   constructor(private http: Http) { }
 
-  getPlanets(): Observable<any> {
+  getPlanets(): Observable<[Planet]> {
     return this.http.get('/api/planets').map(res => res.json())
       .mergeMap((data: { results: Array<Planet> }) => {
         return Observable.from(data.results)

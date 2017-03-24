@@ -17,16 +17,17 @@ export class PlanetListComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.planets = data.planets;
-      this.typeColors = {
-        Animal: 'purple',
-        Cuisine: 'red',
-        Element: 'blue',
-        Festival: 'orange',
-        Plant: 'green',
-        Solar: 'yellow',
-        Unique: 'grey'
-      }
     });
+
+    this.typeColors = {
+      Animal: 'purple',
+      Cuisine: 'red',
+      Element: 'blue',
+      Festival: 'orange',
+      Plant: 'green',
+      Solar: 'yellow',
+      Unique: 'grey'
+    }
   }
 
 }
