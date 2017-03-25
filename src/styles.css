@@ -1,4 +1,18 @@
-body {
-    background: #001c26;
-    color: #abc;
+.ui.segment.galaxy {
+    background-image: url(assets/galaxy.jpg);
+    background-attachment: fixed;
+    background-blend-mode: color-dodge;
+}
+
+.ui.inverted.basic.segment {
+    background: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ui.inverted.segment .ui.items > .item .meta {
+    color: rgba(255, 255, 255, .6);
+}
+
+.ui.header .ui.label {
+    margin-left: 0;
 }
