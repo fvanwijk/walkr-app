@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { PlanetsResolveService } from './planets-resolve.service';
+import { PlanetsResolve } from './planets-resolve.service';
 
-describe('PlanetsResolveService', () => {
+describe('PlanetsResolve', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PlanetsResolveService]
+      providers: [PlanetsResolve]
     });
   });
 
-  it('should ...', inject([PlanetsResolveService], (service: PlanetsResolveService) => {
+  it('should ...', inject([PlanetsResolve], (service: PlanetsResolve) => {
     expect(service).toBeTruthy();
   }));
 });
