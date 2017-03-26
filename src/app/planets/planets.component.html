@@ -3,12 +3,8 @@
     <div class="ui grid">
       <div class="three wide column">
         <div class="ui secondary inverted compact vertical menu">
-          <a class="active item">
-            Planets
-          </a>
-          <a class="item">
-            My planets
-          </a>
+          <a routerLink="overview" routerLinkActive="active" class="item">Planets</a>
+          <a routerLink="my-planets" routerLinkActive="active" class="item">My planets</a>
         </div>
       </div>
       <div class="twelve wide column">
@@ -28,6 +24,6 @@
 
 <div class="ui vertical inverted segment">
   <div class="ui container">
-    <planet-list [planets]="planets"></planet-list>
+    <router-outlet></router-outlet>
   </div>
 </div>

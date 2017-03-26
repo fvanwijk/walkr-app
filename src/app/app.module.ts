@@ -20,14 +20,23 @@ import { CoreService } from './core/core.service';
 import { EpicService } from './epics/epic.service';
 import { PlanetsComponent } from './planets/planets.component';
 import { TestComponent } from './test/test.component';
+import { MyPlanetsComponent } from './planets/my-planets/my-planets.component';
 
 const appRoutes: Routes = [
   {
     path: 'planets',
     component: PlanetsComponent,
-    resolve: {
-      planets: PlanetsResolve
-    }
+    children: [
+      { path: '', redirectTo: 'overview', pathMatch: 'full' },
+      {
+        path: 'overview',
+        component: PlanetListComponent,
+        resolve: {
+          planets: PlanetsResolve
+        }
+      },
+      { path: 'my-planets', component: MyPlanetsComponent }
+    ]
   },
   {
     path: 'ships',
@@ -43,6 +52,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
+    MyPlanetsComponent,
     PlanetListComponent,
     PlanetsComponent,
     ShipListComponent
