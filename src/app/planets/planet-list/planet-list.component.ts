@@ -4,8 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'planet-list',
-  templateUrl: './planet-list.component.html',
-  styleUrls: ['./planet-list.component.css']
+  templateUrl: './planet-list.component.html'
 })
 export class PlanetListComponent implements OnInit {
 

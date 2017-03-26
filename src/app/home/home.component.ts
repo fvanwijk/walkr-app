@@ -3,9 +3,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'home',
+  templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
   apiUrl: String = 'http://localhost:4200/api/';

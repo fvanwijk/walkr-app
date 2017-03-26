@@ -19,7 +19,6 @@ import { WidService } from './wids/wid.service';
 import { CoreService } from './core/core.service';
 import { EpicService } from './epics/epic.service';
 import { PlanetsComponent } from './planets/planets.component';
-import { TestComponent } from './test/test.component';
 import { MyPlanetsComponent } from './planets/my-planets/my-planets.component';
 
 const appRoutes: Routes = [

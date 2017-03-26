@@ -3,8 +3,7 @@ import { ApiService } from "./api.service";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   host = '';
@@ -15,7 +14,7 @@ export class AppComponent implements OnInit {
   }
 
   getUserData() {
-    this.apiService.getUser('y1mGy1QTqtD')
+    this.apiService.getUser('y1mGy1QTqtD') // Temporary use hard coded WID
       .subscribe(user => {
         this.user = user;
       });
