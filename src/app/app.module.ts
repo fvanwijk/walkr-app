@@ -8,7 +8,7 @@ import { ApiService } from './api.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PlanetListComponent } from './planets/planet-list/planet-list.component';
-import { PlanetsResolve } from './planets/planets-resolve.service';
+import { PlanetsResolve } from './planets/planet-list/planets-resolve.service';
 import { PlanetService } from './planets/planet.service';
 import { ShipsResolve } from './ships/ships-resolve.service';
 import { ShipListComponent } from './ships/ship-list/ship-list.component';
