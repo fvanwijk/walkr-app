@@ -8,6 +8,16 @@ import { Observable } from "rxjs";
 export class PlanetsResolve implements Resolve<[Planet]|boolean> {
   constructor(private ps: PlanetService) {}
   resolve(route: ActivatedRouteSnapshot): Observable<[Planet]>|boolean {
-    return this.ps.getPlanets();
+    return this.ps.getPlanets().zip(
+      this.ps.getDiscoveredPlanets('y1mGy1QTqtD'),
+      (planets, discoveries) => {
+        return planets.map(planet => {
+          planet.isDiscovered = !!~discoveries.findIndex(discovery => {
+            return planet.url == discovery.planet.url;
+          });
+          return planet;
+        });
+      }
+    );
   }
 }

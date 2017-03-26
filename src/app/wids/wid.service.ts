@@ -8,7 +8,7 @@ export class WidService {
 
   constructor(private http: Http) { }
 
-  getWidInfo(wid: String): Observable<[Wid]|void> {
+  getWidInfo(wid: String): Observable<Wid> {
     return this.http.get(`/api/wids/${wid}`).map(res => res.json());
   }
 

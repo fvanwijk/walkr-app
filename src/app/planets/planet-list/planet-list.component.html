@@ -17,6 +17,9 @@
           <div class="description">
             <p>{{planet.description}}</p>
           </div>
+          <div *ngIf="planet.isDiscovered" class="extra">
+            <i class="ui green small checkmark icon"></i> I have this planet
+          </div>
         </div>
         <div class="column">
           <div class="ui inverted basic padded segment">

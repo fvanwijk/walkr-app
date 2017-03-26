@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Http } from '@angular/http';
-import { Planet } from './planet';
+import { Planet, Discovery } from './planet';
+import { WidService } from '../wids/wid.service';
+import { Wid } from '../wids/wid';
 
 @Injectable()
 export class PlanetService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private ws: WidService) { }
 
   getPlanets(): Observable<[Planet]> {
     return this.http.get('/api/planets').map(res => res.json())
@@ -19,7 +21,12 @@ export class PlanetService {
                 acc.push(planet);
                 return Observable.of(acc);
               });
-          }, []);
+          }, []).last();
       });
+  }
+
+  getDiscoveredPlanets(wid: String): Observable<[Discovery]> {
+    return this.ws.getWidInfo(wid)
+      .pluck('planets');
   }
 }

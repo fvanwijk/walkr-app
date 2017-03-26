@@ -10,7 +10,8 @@ export interface Planet {
   creature_description: String,
   creature_image_url: String,
   resource: String,
-  resource_image_url: String
+  resource_image_url: String,
+  isDiscovered: Boolean
 }
 
 export interface Satellite {
