@@ -1,3 +1,6 @@
-<p>
-  my-planets works!
-</p>
+<h1>My planets</h1>
+<div class="ui list">
+  <div *ngFor="let discovery of discoveries" class="item">
+    {{discovery.planet.name}}
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Planet } from '../planet';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlanetListComponent implements OnInit {
 
-  @Input() planets: [Planet];
+  planets: [Planet];
   private typeColors: {};
 
   constructor(private route: ActivatedRoute) { }

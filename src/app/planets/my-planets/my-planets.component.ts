@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Discovery } from '../planet';
 
 @Component({
   selector: 'my-planets',
@@ -6,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyPlanetsComponent implements OnInit {
 
-  constructor() { }
+  private discoveries: [Discovery];
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.subscribe(data => {
+      this.discoveries = data.discoveries;
+    });
   }
 
 }
