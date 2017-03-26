@@ -13,6 +13,11 @@ import { PlanetService } from './planets/planet.service';
 import { ShipsResolve } from './ships/ships-resolve.service';
 import { ShipListComponent } from './ships/ship-list/ship-list.component';
 import { ShipService} from './ships/ship.service';
+import { MissionService } from './missions/mission.service';
+import { DfrService } from './dfrs/dfr.service';
+import { WidService } from './wids/wid.service';
+import { CoreService } from './core/core.service';
+import { EpicService } from './epics/epic.service';
 
 const appRoutes: Routes = [
   {
@@ -45,7 +50,18 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ApiService, PlanetService, PlanetsResolve, ShipService, ShipsResolve],
+  providers: [
+    ApiService,
+    CoreService,
+    DfrService,
+    EpicService,
+    MissionService,
+    PlanetService,
+    PlanetsResolve,
+    ShipService,
+    ShipsResolve,
+    WidService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
