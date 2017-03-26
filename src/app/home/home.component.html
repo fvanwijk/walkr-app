@@ -1,36 +1,40 @@
-<h1>Walkr API</h1>
-<p>Running Walkr API server on {{host}}</p>
+<div class="ui container">
+  <div class="ui vertical inverted segment">
+    <h1>Walkr API</h1>
+    <p>Running Walkr API server on {{host}}</p>
 
-<h2>User info</h2>
-<table *ngIf="user">
-  <tbody>
-    <tr>
-      <td>Name</td>
-      <td>{{user.name}}</td>
-    </tr>
-    <tr>
-      <td>Title</td>
-      <td>{{user.title}}</td>
-    </tr>
-    <tr>
-      <td>Level</td>
-      <td>{{user.level}}</td>
-    </tr>
-  </tbody>
-</table>
-<div *ngIf="!user">
-  <p>There is no user info available.</p>
-</div>
-
-<h2>Try it out</h2>
-<form class="ui form" (submit)="onSubmit()">
-  <div class="inline field">
-    <div class="ui labeled input">
-      <div class="ui label">{{apiUrl}}</div>
-      <input type="text" id="query" name="query" [(ngModel)]="query" [placeholder]="placeholder">
+    <h2>User info</h2>
+    <table *ngIf="user">
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>{{user.name}}</td>
+        </tr>
+        <tr>
+          <td>Title</td>
+          <td>{{user.title}}</td>
+        </tr>
+        <tr>
+          <td>Level</td>
+          <td>{{user.level}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="!user">
+      <p>There is no user info available.</p>
     </div>
-    <button class="ui button">Go!</button>
-  </div>
-</form>
 
-<pre class="ui secondary segment">{{result}}</pre>
+    <h2>Try it out</h2>
+    <form class="ui form" (submit)="onSubmit()">
+      <div class="inline field">
+        <div class="ui labeled input">
+          <div class="ui label">{{apiUrl}}</div>
+          <input type="text" id="query" name="query" [(ngModel)]="query" [placeholder]="placeholder">
+        </div>
+        <button class="ui button">Go!</button>
+      </div>
+    </form>
+
+    <pre class="ui secondary segment">{{result}}</pre>
+  </div>
+</div>

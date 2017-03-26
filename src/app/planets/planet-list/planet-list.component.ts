@@ -1,24 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Planet } from '../planet';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-planet-list',
+  selector: 'planet-list',
   templateUrl: './planet-list.component.html',
   styleUrls: ['./planet-list.component.css']
 })
 export class PlanetListComponent implements OnInit {
 
-  planets: [Planet];
+  @Input() planets: [Planet];
   private typeColors: {};
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
-    this.route.data.subscribe(data => {
-      this.planets = data.planets;
-    });
-
     this.typeColors = {
       Animal: 'purple',
       Cuisine: 'red',

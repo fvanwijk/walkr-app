@@ -5,10 +5,11 @@ body {
     background-image: url(assets/galaxy.jpg);
     height: 100%;
     width: 100%;
-    opacity: 0.3;
+    opacity: 0.4;
     position: fixed;
 }
 
+/* Segments */
 .ui.inverted.segment {
     background: inherit;
 }
@@ -16,12 +17,25 @@ body {
     background: inherit;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
+.ui.secondary.inverted.segment {
+    background: linear-gradient(rgba(255, 255, 255, 0.1) 0,rgba(255, 255, 255, 0.2) 100%);
+}
+.ui.vertical.padded.segment {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 .ui.inverted.segment .ui.items > .item .meta,
 .ui.inverted.segment .ui.items > .item .extra {
     color: rgba(255, 255, 255, .6);
 }
 
+/* Other */
+
 .ui.header .ui.label {
     margin-left: 0;
+}
+
+.lead {
+    font-size: 1.5em;
 }

@@ -18,11 +18,13 @@ import { DfrService } from './dfrs/dfr.service';
 import { WidService } from './wids/wid.service';
 import { CoreService } from './core/core.service';
 import { EpicService } from './epics/epic.service';
+import { PlanetsComponent } from './planets/planets.component';
+import { TestComponent } from './test/test.component';
 
 const appRoutes: Routes = [
   {
     path: 'planets',
-    component: PlanetListComponent,
+    component: PlanetsComponent,
     resolve: {
       planets: PlanetsResolve
     }
@@ -42,6 +44,7 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     PlanetListComponent,
+    PlanetsComponent,
     ShipListComponent
   ],
   imports: [
