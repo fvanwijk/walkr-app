@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from "./api.service";
+import { WidService } from './wids/wid.service';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +10,14 @@ export class AppComponent implements OnInit {
   host = '';
   user = undefined;
 
-  constructor(private apiService: ApiService) {
-    this.host = apiService.host;
-  }
-
-  getUserData() {
-    this.apiService.getUser('y1mGy1QTqtD') // Temporary use hard coded WID
-      .subscribe(user => {
-        this.user = user;
-      });
+  constructor(
+    private as: ApiService,
+    private ws: WidService
+  ) {
+    this.host = this.as.host;
   }
 
   ngOnInit() {
-    this.getUserData();
+    this.ws.getWidInfo('y1mGy1QTqtD');
   }
 }
