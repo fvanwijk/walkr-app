@@ -12,9 +12,9 @@ export class PlanetService {
 
   getPlanets(): Observable<[Planet]> {
     return this.http.get('/api/planets').map(res => res.json())
-      .mergeMap((data: { results: [Planet] }) => {
-        return Observable.from(data.results)
-          //.filter((_, i) => i < 3) // Do not fetch too much for debugging
+      .pluck('results')
+      .mergeMap((planets: [Planet]) => {
+        return Observable.from(planets)
           .mergeScan((acc, litePlanet) => {
             return this.http.get(litePlanet.url.replace('1337', '4200')).map(res => res.json())
               .concatMap(planet => {
