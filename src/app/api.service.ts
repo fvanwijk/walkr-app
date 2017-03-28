@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ApiService {
@@ -9,8 +8,18 @@ export class ApiService {
 
   constructor(private http: Http) {}
 
-  getUser(wid): Observable<any> {
-    return this.http.get(`/api/wids/${wid}`)
-      .map(res => res.json());
+  hydrateList(list) {
+    return list
+      //.filter((_, i) => i < 3) // Do not fetch too much for debugging
+      .mergeMap((items: [any]) => {
+        return Observable.from(items)
+          .mergeScan((acc, liteItem) => {
+            return this.http.get(liteItem.url.replace('1337', '4200')).map(res => res.json())
+              .mergeMap(item => {
+                acc.push(item);
+                return Observable.of(acc);
+              });
+          }, []).last();
+      });
   }
 }

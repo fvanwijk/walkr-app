@@ -1,29 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Planet, Discovery } from './planet';
 import { WidService } from '../wids/wid.service';
-import { Wid } from '../wids/wid';
+import { ApiService } from '../api.service';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PlanetService {
 
-  constructor(private http: Http, private ws: WidService) { }
+  constructor(
+    private as: ApiService,
+    private http: Http,
+    private ws: WidService
+  ) { }
+
+  private handleError (error: Response | any) {
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(errMsg);
+    return Observable.throw(errMsg);
+  }
 
   getPlanets(): Observable<[Planet]> {
-    return this.http.get('/api/planets').map(res => res.json())
-      .pluck('results')
-      .mergeMap((planets: [Planet]) => {
-        return Observable.from(planets)
-          .mergeScan((acc, litePlanet) => {
-            return this.http.get(litePlanet.url.replace('1337', '4200')).map(res => res.json())
-              .concatMap(planet => {
-                acc.push(planet);
-                return Observable.of(acc);
-              });
-          }, [])
-          .last();
-      });
+    return this.as.hydrateList(
+      this.http.get('/api/planets')
+        .map(res => res.json())
+        .pluck('results')
+        .catch(this.handleError)
+    );
   }
 
   getDiscoveredPlanets(wid: String): Observable<[Discovery]> {
