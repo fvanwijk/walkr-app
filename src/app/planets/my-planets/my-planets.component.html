@@ -1,6 +1,37 @@
 <h1>My planets</h1>
-<div class="ui list">
-  <div *ngFor="let discovery of discoveries" class="item">
-    {{discovery.planet.name}}
-  </div>
-</div>
+<table class="ui inverted basic table">
+  <thead>
+    <tr>
+      <th>Planet name</th>
+      <th>Discovery date</th>
+      <th>Level</th>
+      <th>Food required</th>
+      <th>Production</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let discovery of discoveries">
+      <td>
+        {{discovery.planet.name}}
+      </td>
+      <td>
+        {{discovery.discovery_date | date:'longDate' }}
+      </td>
+      <td>
+        {{discovery.level}}
+      </td>
+      <td *ngIf="discovery.requirements">
+        <i class="food icon"></i> {{discovery.requirements.quantity}}
+      </td>
+      <td *ngIf="!discovery.requirements">
+        -
+      </td>
+      <td *ngIf="discovery.resource_value.quantity">
+        <i class="money icon"></i> {{discovery.resource_value.quantity}}
+      </td>
+      <td *ngIf="!discovery.resource_value.quantity">
+        -
+      </td>
+    </tr>
+  </tbody>
+</table>
