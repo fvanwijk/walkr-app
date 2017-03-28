@@ -12,7 +12,7 @@ export class PlanetService {
 
   getPlanets(): Observable<[Planet]> {
     return this.http.get('/api/planets').map(res => res.json())
-      .mergeMap((data: { results: Array<Planet> }) => {
+      .mergeMap((data: { results: [Planet] }) => {
         return Observable.from(data.results)
           //.filter((_, i) => i < 3) // Do not fetch too much for debugging
           .mergeScan((acc, litePlanet) => {
@@ -21,7 +21,8 @@ export class PlanetService {
                 acc.push(planet);
                 return Observable.of(acc);
               });
-          }, []).last();
+          }, [])
+          .last();
       });
   }
 
