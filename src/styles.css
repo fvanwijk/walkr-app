@@ -62,6 +62,19 @@ body {
     color: rgba(145, 215, 220, 0.9);
 }
 
+/* Forms */
+.ui.inverted.form input:not([type]), .ui.inverted.form input[type=text], .ui.inverted.form input[type=email], .ui.inverted.form input[type=search], .ui.inverted.form input[type=password], .ui.inverted.form input[type=date], .ui.inverted.form input[type=datetime-local], .ui.inverted.form input[type=tel], .ui.inverted.form input[type=time], .ui.inverted.form input[type=file], .ui.inverted.form input[type=url], .ui.inverted.form input[type=number] {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, .8);
+}
+
+.ui.inverted.teal.basic.button:hover, .ui.inverted.teal.basic.buttons .button:hover, .ui.inverted.teal.buttons .basic.button:hover {
+    color: rgba(145, 215, 220, 0.7) !important;
+    box-shadow: 0 0 0 2px rgba(145, 215, 220, 0.7) inset !important;
+}
+
+
 /* Other */
 
 .ui.inverted.header,

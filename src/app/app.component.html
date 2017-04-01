@@ -9,7 +9,6 @@
         <a class="item" routerLinkActive="active">Missions</a>
         <a class="item" routerLinkActive="active">Epics</a>
         <div class="right menu">
-          {{ user }}
           <div class="ui item" *ngIf="user">
             <div class="ui inverted small header">{{user.name}}<span class="sub header">{{user.title}}, lvl {{user.level}}</span></div>
           </div>

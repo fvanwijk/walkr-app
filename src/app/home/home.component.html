@@ -1,9 +1,9 @@
 <div class="ui container">
   <div class="ui vertical inverted segment">
-    <h1>Walkr API</h1>
+    <h1 class="ui inverted header">Walkr API</h1>
     <p>Running Walkr API server on {{host}}</p>
 
-    <h2>User info</h2>
+    <h2 class="ui inverted header">User info</h2>
     <table *ngIf="user">
       <tbody>
         <tr>
@@ -24,17 +24,17 @@
       <p>There is no user info available.</p>
     </div>
 
-    <h2>Try it out</h2>
-    <form class="ui form" (submit)="onSubmit()">
+    <h2 class="ui inverted header">Try it out</h2>
+    <form class="ui inverted form" (submit)="onSubmit()">
       <div class="inline field">
-        <div class="ui labeled input">
+        <div class="ui inverted labeled action input">
           <div class="ui label">{{apiUrl}}</div>
           <input type="text" id="query" name="query" [(ngModel)]="query" [placeholder]="placeholder">
+          <button class="ui basic inverted teal button">Go!</button>
         </div>
-        <button class="ui button">Go!</button>
       </div>
     </form>
 
-    <pre class="ui secondary segment">{{result}}</pre>
+    <pre class="ui secondary inverted segment" *ngIf="result">{{result}}</pre>
   </div>
 </div>
