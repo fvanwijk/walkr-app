@@ -2,15 +2,18 @@
 <table class="ui inverted basic table">
   <thead>
     <tr>
+      <th></th>
       <th>Planet name</th>
       <th>Discovery date</th>
       <th>Level</th>
+      <th>Population</th>
       <th>Food required</th>
       <th>Production</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let discovery of discoveries">
+    <tr *ngFor="let discovery of discoveries; let i = index">
+      <td>{{i}}</td>
       <td>
         {{discovery.planet.name}}
       </td>
@@ -19,6 +22,9 @@
       </td>
       <td>
         {{discovery.level}}
+      </td>
+      <td>
+        {{discovery.population}}
       </td>
       <td *ngIf="discovery.requirements">
         <i class="food icon"></i> {{discovery.requirements.quantity}}
