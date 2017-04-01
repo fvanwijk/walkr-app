@@ -1,4 +1,4 @@
-<h1>Planets</h1>
+<h1 class="ui inverted header">Planets</h1>
 <div class="ui very relaxed items">
   <div class="item" *ngFor="let planet of planets">
     <div class="image">
@@ -18,7 +18,7 @@
             <p>{{planet.description}}</p>
           </div>
           <div *ngIf="planet.isDiscovered" class="extra">
-            <i class="ui green small checkmark icon"></i> I have this planet
+            <i class="ui green checkmark icon"></i> I have this planet
           </div>
         </div>
         <div class="column">

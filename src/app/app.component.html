@@ -1,14 +1,27 @@
 <div class="galaxy"></div>
-<div class="ui vertical inverted segment">
-  <div class="ui container">
-    <div class="ui secondary inverted pointing menu">
-      <a class="item" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Walkr API</a>
-      <a class="item" routerLink="/planets" routerLinkActive="active">Planets</a>
-      <a class="item" routerLink="/ships" routerLinkActive="active">Ships</a>
-      <a class="item" routerLinkActive="active">Missions</a>
-      <a class="item" routerLinkActive="active">Epics</a>
+<div class="wrap">
+  <div class="ui vertical inverted segment">
+    <div class="ui container">
+      <div class="ui secondary inverted pointing menu">
+        <a class="item" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Walkr API</a>
+        <a class="item" routerLink="/planets" routerLinkActive="active">Planets</a>
+        <a class="item" routerLink="/ships" routerLinkActive="active">Ships</a>
+        <a class="item" routerLinkActive="active">Missions</a>
+        <a class="item" routerLinkActive="active">Epics</a>
+        <div class="right menu">
+          {{ user }}
+          <div class="ui item" *ngIf="user">
+            <div class="ui inverted small header">{{user.name}}<span class="sub header">{{user.title}}, lvl {{user.level}}</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</div>
+<div class="ui tertiary inverted footer segment">
+  <div class="ui container">
+    This website is not affiliated with Walkr or Fourdesire Inc. Ltd.
+  </div>
+</div>

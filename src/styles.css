@@ -1,6 +1,23 @@
-body {
-    background: #000;
+html, body {
+    height: 100%;
 }
+body {
+    background: #0a1013;
+}
+
+.wrap {
+    min-height: 100%;
+    margin-bottom: -47px;
+}
+.wrap:after {
+    content: "";
+    display: block;
+}
+.footer, .wrap:after {
+    margin-top: 0 !important;
+    height: 47px; /* 14 - 19 - 14 */
+}
+
 .galaxy {
     background-image: url(assets/galaxy.jpg);
     height: 100%;
@@ -12,13 +29,21 @@ body {
 /* Segments */
 .ui.inverted.segment {
     background: inherit;
+    color: rgba(145, 215, 220, 0.7);
+}
+.ui.inverted.segment .inverted.segment {
+    color: rgba(145, 215, 220, 0.7);
 }
 .ui.inverted.basic.segment {
     background: inherit;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .ui.secondary.inverted.segment {
-    background: linear-gradient(rgba(255, 255, 255, 0.1) 0,rgba(255, 255, 255, 0.2) 100%);
+    background: linear-gradient(rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.3) 100%);
+    color: rgba(145, 215, 220, 0.7);
+}
+.ui.tertiary.inverted.segment {
+    background: linear-gradient(rgba(0, 35, 40, 0.7) 0,rgba(0, 0, 0, 1) 100%);
 }
 .ui.vertical.padded.segment {
     padding-left: 0;
@@ -27,11 +52,27 @@ body {
 
 .ui.inverted.segment .ui.items > .item .meta,
 .ui.inverted.segment .ui.items > .item .extra {
-    color: rgba(255, 255, 255, .6);
+    color: rgba(230, 255, 255, .8);
+}
+
+.ui.inverted.table {
+    color: rgba(145, 215, 220, 0.7);
+}
+.ui.inverted.table th {
+    color: rgba(145, 215, 220, 0.9);
 }
 
 /* Other */
 
+.ui.inverted.header,
+.ui.inverted.header .sub.header,
+.ui.inverted.segment > .ui.header {
+    color: rgba(255, 255, 255, .8);
+    text-shadow: 0 0 0.3em rgba(145,215,220,0.8);
+}
+.ui.header .sub.header {
+    margin-bottom: 0.3em;
+}
 .ui.header .ui.label {
     margin-left: 0;
 }
