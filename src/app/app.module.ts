@@ -8,6 +8,7 @@ import { ApiService } from './api.service';
 import { AppComponent } from './app.component';
 import { CoreService } from './core/core.service';
 import { DfrService } from './dfrs/dfr.service';
+import { DurationPipe } from './planets/duration.pipe';
 import { EpicService } from './epics/epic.service';
 import { HomeComponent } from './home/home.component';
 import { MissionService } from './missions/mission.service';
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    DurationPipe,
     HomeComponent,
     MyPlanetsComponent,
     PlanetListComponent,

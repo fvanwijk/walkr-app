@@ -9,7 +9,7 @@
       <th>Level</th>
       <th>Population</th>
       <th>Food required</th>
-      <th>Completion time</th>
+      <th>Completion time<br><small>(h:mm:ss)</small></th>
       <th>Production</th>
     </tr>
   </thead>
@@ -25,7 +25,7 @@
         <i class="walkr food icon"></i> {{discovery.requirements.quantity}}
       </td>
       <ng-template #noRequirements><td>-</td></ng-template>
-      <td *ngIf="discovery.completion_time; else noCompletionTime">{{discovery.completion_time}} sec</td>
+      <td *ngIf="discovery.completion_time; else noCompletionTime">{{discovery.completion_time | duration}}</td>
       <ng-template #noCompletionTime><td>-</td></ng-template>
       <td *ngIf="discovery.resource_value.quantity; else noResources">
         <i class="walkr coin icon"></i> {{discovery.resource_value.quantity}}
