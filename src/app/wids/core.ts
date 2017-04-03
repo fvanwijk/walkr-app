@@ -1,6 +1,6 @@
 export interface Core {
   url: String,
-  level: Number, // Level?
+  level: Number,
   dfr_limits: Number,
   food_storage: Number,
   stars: Number,

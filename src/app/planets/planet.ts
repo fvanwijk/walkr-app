@@ -28,7 +28,7 @@ export interface Discovery {
   url: String;
   wid: { name: String, url: String };
   planet: { name: String, url: String };
-  level: Number;
+  level: Number; // Level?
   discovery_date: Date;
   distance: Number;
   base_price: { name: String, quantity: Number };
@@ -36,4 +36,11 @@ export interface Discovery {
   requirements: { name: String, quantity: Number }; // Food to start new harvest round
   resource_value: { name: String, quantity: Number }; // Total resources
   completion_time: Number; // seconds
+}
+
+export interface Level {
+  url: String,
+  level: Number,
+  production_rate: Number,
+  description: String
 }

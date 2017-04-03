@@ -6,7 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ApiService } from './api.service';
 import { AppComponent } from './app.component';
-import { CoreService } from './core/core.service';
 import { DfrService } from './dfrs/dfr.service';
 import { DurationPipe } from './planets/duration.pipe';
 import { EpicService } from './epics/epic.service';
@@ -73,7 +72,6 @@ const appRoutes: Routes = [
   ],
   providers: [
     ApiService,
-    CoreService,
     DfrService,
     EpicService,
     MissionService,
