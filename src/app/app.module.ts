@@ -21,6 +21,8 @@ import { ShipListComponent } from './ships/ship-list/ship-list.component';
 import { ShipService} from './ships/ship.service';
 import { ShipsResolve } from './ships/ships-resolve.service';
 import { WidService } from './wids/wid.service';
+import { GameProgressComponent } from './wids/game-progress/game-progress.component';
+import { GameProgressResolve } from './wids/game-progress/game-progress-resolve.service';
 
 const appRoutes: Routes = [
   {
@@ -51,6 +53,13 @@ const appRoutes: Routes = [
       ships: ShipsResolve
     }
   },
+  {
+    path: 'progress',
+    component: GameProgressComponent,
+    resolve: {
+      user: GameProgressResolve
+    }
+  },
   { path: '', component: HomeComponent }
 ];
 
@@ -58,6 +67,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DurationPipe,
+    GameProgressComponent,
     HomeComponent,
     MyPlanetsComponent,
     PlanetListComponent,
@@ -74,6 +84,7 @@ const appRoutes: Routes = [
     ApiService,
     DfrService,
     EpicService,
+    GameProgressResolve,
     MissionService,
     MyPlanetsResolve,
     PlanetService,
