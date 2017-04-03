@@ -9,10 +9,3 @@ export interface Core {
     quantity: Number
   }
 }
-
-export interface Level {
-  url: String,
-  level: Number,
-  production_rate: Number,
-  description: String
-}
