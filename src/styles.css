@@ -1,3 +1,11 @@
+@font-face {
+    font-family: Aero;
+    font-weight: normal;
+    src:
+        url(assets/aero-webfont.woff) format('woff'),
+        url(assets/aero-webfont.woff2) format('woff2');
+}
+
 html, body {
     height: 100%;
 }
@@ -96,16 +104,21 @@ i.walkr.food.icon:before {
     content: initial;
 }
 
-/* Other */
+/* Headers */
+.ui.header {
+    font-family: Aero, Lato, Helvetica Neue, Arial, sans-serif;
+}
 
 .ui.inverted.header,
 .ui.inverted.header .sub.header,
 .ui.inverted.segment > .ui.header {
     color: rgba(255, 255, 255, .8);
-    text-shadow: 0 0 0.3em rgba(145,215,220,0.8);
+    text-shadow: 0 0 0.65em rgba(145,215,220,0.6);
 }
 .ui.header .sub.header {
+    font-family: Lato, Helvetica Neue, Arial, sans-serif;
     margin-bottom: 0.3em;
+    text-shadow: none;
 }
 .ui.header .ui.label {
     margin-left: 0;
