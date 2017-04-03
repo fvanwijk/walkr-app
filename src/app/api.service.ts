@@ -10,9 +10,9 @@ export class ApiService {
 
   hydrateList(list) {
     return list
-      //.filter((_, i) => i < 3) // Do not fetch too much for debugging
       .mergeMap((items: [any]) => {
         return Observable.from(items)
+          //.filter((_, i) => i < 10) // Do not fetch too much for debugging
           .mergeScan((acc, liteItem) => {
             return this.http.get(liteItem.url.replace('1337', '4200')).map(res => res.json())
               .mergeMap(item => {
