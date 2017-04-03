@@ -74,6 +74,27 @@ body {
     box-shadow: 0 0 0 2px rgba(145, 215, 220, 0.7) inset !important;
 }
 
+/* Custom icons */
+i.walkr.icon {
+    background-size: cover;
+    display: inline-block;
+    width: 1em;
+    position: relative;
+    top: 1px;
+}
+i.walkr.coin.icon {
+    background-image: url(assets/coin.png);
+}
+i.walkr.cube.icon {
+    background-image: url(assets/cube.png);
+}
+i.walkr.food.icon {
+    background-image: url(assets/food.png);
+}
+i.walkr.cube.icon:before,
+i.walkr.food.icon:before {
+    content: initial;
+}
 
 /* Other */
 
