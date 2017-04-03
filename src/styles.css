@@ -127,3 +127,6 @@ i.walkr.food.icon:before {
 .lead {
     font-size: 1.5em;
 }
+.ui.header small {
+    font-size: 50%
+}

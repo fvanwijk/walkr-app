@@ -12,12 +12,14 @@ export class GameProgressComponent implements OnInit {
 
   private core: Core;
   private user: Wid;
+  private stars: Array<any>;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.user = data.user;
+      this.stars = Array(data.user.core.stars).fill(1);
     });
   }
 

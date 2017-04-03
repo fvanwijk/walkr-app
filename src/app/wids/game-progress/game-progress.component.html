@@ -4,11 +4,8 @@
     <p>Monitor your game progress here and optimize your strategies.</p>
 
     <div *ngIf="user; else notLoggedIn">
-      <h2 class="ui inverted header">Core</h2>
-
-      <p>Level {{user.level}}</p>
-
-      <i class="yellow star icon"></i><i class="yellow star icon"></i><i class="yellow star icon"></i>
+      <h2 class="ui inverted header">Core <small>Lv{{user.level}}</small></h2>
+      <i class="yellow star icon" *ngFor="let star of stars"></i>
     </div>
     <ng-template #notLoggedIn>
       <p>Please provide your Walkr ID.</p>
