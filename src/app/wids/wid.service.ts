@@ -12,4 +12,8 @@ export class WidService {
     return this.http.get(`/api/wids/${wid}`).map(res => res.json());
   }
 
+  getPlanetUpgrades(wid: String): Observable<any> {
+    return this.http.get(`/api/wids/${wid}/planets/upgrades`).map(res => res.json());
+  }
+
 }
