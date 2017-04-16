@@ -130,3 +130,24 @@ i.walkr.food.icon:before {
 .ui.header small {
     font-size: 50%
 }
+.spin {
+    -webkit-animation:spin 240s linear infinite;
+    -moz-animation:spin 240s linear infinite;
+    animation:spin 240s linear infinite;
+}
+
+@-moz-keyframes spin {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+@-webkit-keyframes spin {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+@keyframes spin {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
