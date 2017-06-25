@@ -6,6 +6,27 @@
     <div *ngIf="user; else notLoggedIn">
       <h2 class="ui inverted header">Core <small>Lv{{user.level}}</small></h2>
       <i class="yellow star icon" *ngFor="let star of stars"></i>
+
+      <p>Progress</p>
+      <div class="ui inverted teal tiny progress">
+        <div class="bar" style="width: 80%"></div>
+      </div>
+
+      <h2 class="ui inverted header">Planet upgrade prices</h2>
+
+      <planet-upgrade-chart [wid]="user.wid"></planet-upgrade-chart>
+
+      <div>
+
+        <!--<canvas *ngIf="upgrades" baseChart width="800" height="300"
+              [datasets]="upgrades"
+              [labels]="upgradesLabels"
+              [legend]="false"
+              [options]="upgradesOptions"
+              [colors]="colors"
+              chartType="line"></canvas>-->
+      </div>
+
     </div>
     <ng-template #notLoggedIn>
       <p>Please provide your Walkr ID.</p>
