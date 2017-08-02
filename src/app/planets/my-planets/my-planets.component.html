@@ -18,17 +18,18 @@
       <td>{{i}}</td>
       <td>{{discovery.distance | number}} LY</td>
       <td>{{discovery.planet.name}}</td>
-      <td>{{(discovery.discovery_date | date:'longDate') || '-' }}</td>
+      <td *ngIf="discovery.discovery; else noDiscoveryDate">{{(discovery.discovery.date | date:'longDate') || '-' }}</td>
+      <ng-template #noDiscoveryDate><td>-</td></ng-template>
       <td>{{discovery.level || '-'}}</td>
-      <td>{{discovery.population}}</td>
-      <td *ngIf="discovery.requirements; else noRequirements">
-        <i class="walkr food icon"></i> {{discovery.requirements.quantity}}
+      <td>{{discovery.population | number}}</td>
+      <td *ngIf="discovery.production.requirements; else noRequirements">
+        <i class="walkr food icon"></i> {{discovery.production.requirements.quantity | number}}
       </td>
       <ng-template #noRequirements><td>-</td></ng-template>
-      <td *ngIf="discovery.completion_time; else noCompletionTime">{{discovery.completion_time | duration}}</td>
+      <td *ngIf="discovery.discovery.time; else noCompletionTime">{{discovery.discovery.time | duration}}</td>
       <ng-template #noCompletionTime><td>-</td></ng-template>
-      <td *ngIf="discovery.resource_value.quantity; else noResources">
-        <i class="walkr coin icon"></i> {{discovery.resource_value.quantity}}
+      <td *ngIf="discovery.production.resources.quantity; else noResources">
+        <i class="walkr coin icon"></i> {{discovery.production.resources.quantity | number}}
       </td>
       <ng-template #noResources><td>-</td></ng-template>
 
