@@ -2,10 +2,16 @@
 <table class="ui inverted basic table">
   <thead>
     <tr>
+      <th colspan="5">Discovery</th>
+      <th colspan="2">Upgrading</th>
+      <th colspan="3">Production</th>
+    </tr>
+    <tr>
       <th>#</th>
       <th>Distance</th>
       <th>Planet name</th>
       <th>Discovery date</th>
+      <th>Discovery duration</th>
       <th>Level</th>
       <th>Population</th>
       <th>Food required</th>
@@ -18,21 +24,18 @@
       <td>{{i}}</td>
       <td>{{discovery.distance | number}} LY</td>
       <td>{{discovery.planet.name}}</td>
-      <td *ngIf="discovery.discovery; else noDiscoveryDate">{{(discovery.discovery.date | date:'longDate') || '-' }}</td>
-      <ng-template #noDiscoveryDate><td>-</td></ng-template>
+      <td>{{discovery.discovery.date | date:'longDate'}}</td>
+      <td>{{discovery.discovery.time | duration}}</td>
       <td>{{discovery.level || '-'}}</td>
       <td>{{discovery.population | number}}</td>
       <td *ngIf="discovery.production.requirements; else noRequirements">
         <i class="walkr food icon"></i> {{discovery.production.requirements.quantity | number}}
       </td>
-      <ng-template #noRequirements><td>-</td></ng-template>
-      <td *ngIf="discovery.discovery.time; else noCompletionTime">{{discovery.discovery.time | duration}}</td>
-      <ng-template #noCompletionTime><td>-</td></ng-template>
+      <td>{{discovery.production.time | duration}}</td>
       <td *ngIf="discovery.production.resources.quantity; else noResources">
         <i class="walkr coin icon"></i> {{discovery.production.resources.quantity | number}}
       </td>
       <ng-template #noResources><td>-</td></ng-template>
-
     </tr>
   </tbody>
 </table>
