@@ -30,7 +30,7 @@
       <td>{{discovery.discovery.date | date:'longDate'}}</td>
       <td>{{discovery.discovery.time | duration}}</td>
 
-      <td *ngIf="discovery.upgrade; else noDiscoveryPrice">
+      <td class="no-break" *ngIf="discovery.upgrade; else noDiscoveryPrice">
         <i class="walkr coin icon"></i> {{discovery.upgrade.base_price.coins | number}}
       </td>
       <ng-template #noDiscoveryPrice><td>-</td></ng-template>
@@ -44,14 +44,14 @@
       <td>{{discovery.level || '-'}}</td>
       <td>{{discovery.population | number}}</td>
 
-      <td *ngIf="discovery.production.requirements; else noRequirements">
+      <td class="no-break" *ngIf="discovery.production.requirements; else noRequirements">
         <i class="walkr food icon"></i> {{discovery.production.requirements.quantity | number}}
       </td>
       <ng-template #noRequirements><td>-</td></ng-template>
 
       <td>{{discovery.production.time | duration}}</td>
 
-      <td *ngIf="discovery.production.resources.quantity; else noResources">
+      <td class="no-break" *ngIf="discovery.production.resources.quantity; else noResources">
         <i class="walkr coin icon"></i> {{discovery.production.resources.quantity | number}}
       </td>
       <ng-template #noResources><td>-</td></ng-template>

@@ -70,6 +70,11 @@ a {
     color: rgba(230, 255, 255, .8);
 }
 
+/* Table */
+.ui.table td.no-break {
+    white-space: nowrap;
+}
+
 .ui.inverted.table {
     color: rgba(145, 215, 220, 0.7);
 }
