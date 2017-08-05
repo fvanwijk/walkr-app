@@ -13,6 +13,12 @@ body {
     background: #0a1013;
 }
 
+@media only screen and (min-width: 1440px) {
+    .ui.container{
+        width: 1420px;
+    }
+}
+
 .wrap {
     min-height: 100%;
     margin-bottom: -47px;
