@@ -25,7 +25,7 @@
   <tbody>
     <tr *ngFor="let discovery of discoveries; let i = index">
       <td>{{i}}</td>
-      <td>{{discovery.distance | number}} LY</td>
+      <td>{{discovery.discovery.distance | number}} LY</td>
       <td>{{discovery.planet.name}}</td>
       <td>{{discovery.discovery.date | date:'longDate'}}</td>
       <td>{{discovery.discovery.time | duration}}</td>
@@ -36,8 +36,8 @@
       <ng-template #noDiscoveryPrice><td>-</td></ng-template>
 
       <ng-template [ngIf]="discovery.discovery.boost" [ngIfElse]="noDiscoveryBoost">
-        <td>{{discovery.discovery.boost.cubes | number}}</td>
-        <td>{{discovery.discovery.boost.energy | number}}</td>
+        <td class="on-break">{{discovery.discovery.boost.cubes | number}}</td>
+        <td class="on-break">{{discovery.discovery.boost.energy | number}}</td>
       </ng-template>
       <ng-template #noDiscoveryBoost><td>-</td><td>-</td></ng-template>
 

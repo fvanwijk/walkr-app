@@ -14,7 +14,10 @@ export class MyPlanetsComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.discoveries = data.discoveries;
+      this.discoveries = data.discoveries
+        .sort((a, b) => {
+          return a.discovery.distance < b.discovery.distance ? -1 : 1;
+        });
     });
   }
 
