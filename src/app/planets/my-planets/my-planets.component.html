@@ -3,7 +3,7 @@
   <thead>
     <tr>
       <th colspan="8">Discovery</th>
-      <th colspan="2">Upgrading</th>
+      <th colspan="8">Upgrading</th>
       <th colspan="3">Production</th>
     </tr>
     <tr>
@@ -11,12 +11,20 @@
       <th>Distance</th>
       <th>Planet name</th>
       <th>Discovery date</th>
-      <th>Discovery duration</th>
+      <th>Discovery time<br><small>(h:mm:ss)</small></th>
       <th>Discovery price</th>
       <th>Discovery boost cubes</th>
       <th>Discovery boost energy</th>
+
       <th>Level</th>
       <th>Population</th>
+      <th>Next upgrade Coins</th>
+      <th>Next upgrade Cubes</th>
+      <th>Next upgrade labs energy</th>
+      <th>Upgrade time<br><small>(h:mm:ss)</small></th>
+      <th>Upgrade boost cubes</th>
+      <th>Upgrade boost energy</th>
+
       <th>Food required</th>
       <th>Completion time<br><small>(h:mm:ss)</small></th>
       <th>Production</th>
@@ -43,6 +51,25 @@
 
       <td>{{discovery.level || '-'}}</td>
       <td>{{discovery.population | number}}</td>
+
+      <ng-template [ngIf]="discovery.upgrade" [ngIfElse]="noUpgrade">
+        <ng-template [ngIf]="discovery.upgrade.next_price" [ngIfElse]="noUpgradePrice">
+          <td class="no-break"><i class="walkr coin icon"></i> {{discovery.upgrade.next_price.coins | number}}</td>
+          <td class="no-break">⌬ {{discovery.upgrade.next_price.cubes | number}}</td>
+          <td class="no-break">⚡ {{discovery.upgrade.next_price.energy | number}}</td>
+        </ng-template>
+        <ng-template #noUpgradePrice><td>-</td><td>-</td><td>-</td></ng-template>
+
+        <td>{{discovery.upgrade.time | duration}}</td>
+
+        <ng-template [ngIf]="discovery.upgrade.boost" [ngIfElse]="noUpgradeBoost">
+          <td class="no-break">⌬ {{discovery.upgrade.boost.cubes | number}}</td>
+          <td class="no-break">⚡ {{discovery.upgrade.boost.energy | number}}</td>
+        </ng-template>
+        <ng-template #noUpgradeBoost><td>-</td><td>-</td></ng-template>
+
+      </ng-template>
+      <ng-template #noUpgrade><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></ng-template>
 
       <td class="no-break" *ngIf="discovery.production.requirements; else noRequirements">
         <i class="walkr food icon"></i> {{discovery.production.requirements.quantity | number}}
