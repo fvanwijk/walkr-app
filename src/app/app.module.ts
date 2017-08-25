@@ -25,6 +25,7 @@ import { ShipListComponent } from './ships/ship-list/ship-list.component';
 import { ShipService} from './ships/ship.service';
 import { ShipsResolve } from './ships/ships-resolve.service';
 import { WidService } from './wids/wid.service';
+import { SatellitesComponent } from './planets/satellites/satellites.component';
 
 const appRoutes: Routes = [
   {
@@ -42,6 +43,13 @@ const appRoutes: Routes = [
       {
         path: 'my-planets',
         component: MyPlanetsComponent,
+        resolve: {
+          discoveries: MyPlanetsResolve
+        }
+      },
+      {
+        path: 'satellites',
+        component: SatellitesComponent,
         resolve: {
           discoveries: MyPlanetsResolve
         }
@@ -75,6 +83,7 @@ const appRoutes: Routes = [
     PlanetListComponent,
     PlanetsComponent,
     PlanetUpgradeChartComponent,
+    SatellitesComponent,
     ShipListComponent
   ],
   imports: [
