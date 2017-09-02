@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlanetListComponent implements OnInit {
 
-  planets: [Planet];
+  planets: Planet[];
   private typeColors: {};
 
   constructor(private route: ActivatedRoute) { }

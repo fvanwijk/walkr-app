@@ -21,11 +21,12 @@ import { PlanetsResolve } from './planets/planet-list/planets-resolve.service';
 import { PlanetsComponent } from './planets/planets.component';
 import { PlanetService } from './planets/planet.service';
 import { PlanetUpgradeChartComponent } from './wids/game-progress/planet-upgrade-chart/planet-upgrade-chart.component';
+import { SatellitesComponent } from './planets/satellites/satellites.component';
+import { SatellitesResolve } from './planets/satellites/satellites-resolve.service';
 import { ShipListComponent } from './ships/ship-list/ship-list.component';
 import { ShipService} from './ships/ship.service';
 import { ShipsResolve } from './ships/ships-resolve.service';
 import { WidService } from './wids/wid.service';
-import { SatellitesComponent } from './planets/satellites/satellites.component';
 
 const appRoutes: Routes = [
   {
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
         path: 'satellites',
         component: SatellitesComponent,
         resolve: {
-          discoveries: MyPlanetsResolve
+          planets: SatellitesResolve
         }
       }
     ]
@@ -102,6 +103,7 @@ const appRoutes: Routes = [
     MyPlanetsResolve,
     PlanetService,
     PlanetsResolve,
+    SatellitesResolve,
     ShipService,
     ShipsResolve,
     WidService

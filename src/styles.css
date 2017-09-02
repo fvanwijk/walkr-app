@@ -13,6 +13,10 @@ body {
     background: #0a1013;
 }
 
+.ui.container {
+    overflow: auto;
+}
+
 @media only screen and (min-width: 1440px) {
     .ui.container{
         width: 1420px;
@@ -77,7 +81,7 @@ a {
 }
 
 /* Table */
-.ui.table td.no-break {
+.ui.table .no-break {
     white-space: nowrap;
 }
 
