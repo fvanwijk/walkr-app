@@ -4,8 +4,6 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ApiService {
-  host = 'http://localhost:1337';
-
   constructor(private http: Http) {}
 
   hydrateList(list) {

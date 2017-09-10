@@ -8,7 +8,7 @@ import { Discovery } from '../planet';
 })
 export class MyPlanetsComponent implements OnInit {
 
-  private discoveries: [Discovery];
+  public discoveries: [Discovery];
 
   constructor(private route: ActivatedRoute) { }
 

@@ -1,9 +1,35 @@
 <div class="ui vertical inverted segment">
   <div class="ui container">
     <h1 class="ui inverted header">Walkr API</h1>
-    <p>Running Walkr API server on {{host}}</p>
 
-    <h2 class="ui inverted header">User info</h2>
+    <h2 class="ui inverted header">Try it out</h2>
+    <form class="ui inverted form" (submit)="onSubmit()">
+      <div class="inline field">
+        <div class="ui inverted labeled action input">
+          <div class="ui label">{{apiUrl}}</div>
+          <input type="text" id="query" name="query" [(ngModel)]="query" [placeholder]="placeholder">
+          <button class="ui basic inverted teal button">Go!</button>
+        </div>
+      </div>
+    </form>
+
+    <pre class="ui secondary inverted segment" *ngIf="result">{{result}}</pre>
+
+    <h2 class="ui inverted header">What is this?</h2>
+    <p><a href="http://www.walkrgame.com">Walkr</a> is mobile game where you explore net planets with a spaceship that is running on 'walking energy'.</p>
+    <p>The gyroscope in your phone is generating this energy so the game will encourage you to take a walk.</p>
+    <p>The further you come in the game, the more money upgrades will cost. In the beginning you explore many planets,
+      and a walk in the park boost the progress a lot, but it gets slower and slower when you are playing for while.</p>
+    <p>This website is dedicated to optimizing playing strategies, so that you will progress quite fast.
+      All relevant information from <a href="https://www.reddit.com/r/walkr/">Reddit</a> and <a href="http://walkr.wikia.com">Walkr Wikia</a> are brought together on this website, plus much more.
+      Please <a href="mailto:">email</a> me if you find missing or erroneous information.</p>
+    <h2 class="ui inverted header">Why an REST API?</h2>
+    <p>A <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST API</a> is a convenient way to retrieve data from a system.
+      You can use this Walkr API to build your own apps or just try it on this website.</p>
+    <p>This site is heavily inspired by <a href="https://pokeapi.co/">Poké API</a> and <a href="https://swapi.co/">Star Wars API</a>.</p>
+    <p>Everything is still running on free Heroku dynos and a sandbox mLab Mongo database, so please use it only for experimenting and for personal purposes.</p>
+
+    <!--<h2 class="ui inverted header">User info</h2>
     <table *ngIf="user">
       <tbody>
         <tr>
@@ -22,19 +48,6 @@
     </table>
     <div *ngIf="!user">
       <p>There is no user info available.</p>
-    </div>
-
-    <h2 class="ui inverted header">Try it out</h2>
-    <form class="ui inverted form" (submit)="onSubmit()">
-      <div class="inline field">
-        <div class="ui inverted labeled action input">
-          <div class="ui label">{{apiUrl}}</div>
-          <input type="text" id="query" name="query" [(ngModel)]="query" [placeholder]="placeholder">
-          <button class="ui basic inverted teal button">Go!</button>
-        </div>
-      </div>
-    </form>
-
-    <pre class="ui secondary inverted segment" *ngIf="result">{{result}}</pre>
+    </div>-->
   </div>
 </div>

@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "http://walkr-api.herokuapp.com",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

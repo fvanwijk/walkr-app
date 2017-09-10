@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from "./api.service";
 import { WidService } from './wids/wid.service';
 
 @Component({
@@ -7,15 +6,11 @@ import { WidService } from './wids/wid.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  host = '';
   user = undefined;
 
   constructor(
-    private as: ApiService,
-    private ws: WidService
-  ) {
-    this.host = this.as.host;
-  }
+    private ws: WidService,
+  ) {}
 
   ngOnInit() {
     this.ws.getWidInfo('y1mGy1QTqtD');

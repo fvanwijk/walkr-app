@@ -15,7 +15,7 @@ Chart.defaults.global.defaultFontFamily = "Lato, 'Helvetica Neue', 'Helvetica', 
 export class GameProgressComponent implements OnInit {
 
   private core: Core;
-  private user: Wid;
+  public user: Wid;
   private stars: Array<any>;
   private upgrades: Array<any>;
   private colors: Array<any>;
