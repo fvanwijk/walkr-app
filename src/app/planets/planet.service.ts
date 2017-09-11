@@ -6,6 +6,7 @@ import { WidService } from '../wids/wid.service';
 import { ApiService } from '../api.service';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { environment } from "environments/environment";
 
 @Injectable()
 export class PlanetService {
@@ -31,7 +32,7 @@ export class PlanetService {
 
   getPlanets(): Observable<[Planet]> {
     return this.as.hydrateList(
-      this.http.get('/api/planets')
+      this.http.get(`//${environment.apiUrl}/api/planets`)
         .map(res => res.json())
         .pluck('results')
         .catch(this.handleError)

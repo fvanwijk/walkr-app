@@ -12,7 +12,7 @@ export class ApiService {
         return Observable.from(items)
           //.filter((_, i) => i < 10) // Do not fetch too much for debugging
           .mergeScan((acc, liteItem) => {
-            return this.http.get(liteItem.url.replace('1337', '4200')).map(res => res.json())
+            return this.http.get(liteItem.url).map(res => res.json())
               .mergeMap(item => {
                 acc.push(item);
                 return Observable.of(acc);
