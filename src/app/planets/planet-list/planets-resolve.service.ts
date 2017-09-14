@@ -5,9 +5,9 @@ import { PlanetService } from '../planet.service';
 import { Observable } from "rxjs";
 
 @Injectable()
-export class PlanetsResolve implements Resolve<[Planet]|boolean> {
+export class PlanetsResolve implements Resolve<Planet[]|boolean> {
   constructor(private ps: PlanetService) {}
-  resolve(route: ActivatedRouteSnapshot): Observable<[Planet]>|boolean {
+  resolve(route: ActivatedRouteSnapshot): Observable<Planet[]>|boolean {
     return this.ps.getPlanets().zip(
       this.ps.getDiscoveredPlanets('y1mGy1QTqtD'),
       (planets, discoveries) => {
