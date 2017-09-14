@@ -14,7 +14,9 @@ const forceSSL = function() {
   }
 };
 
-//app.use(forceSSL());
+if (process.env.NODE_ENV === 'production') {
+  app.use(forceSSL());
+}
 app.use(express.static(`${__dirname}/dist`));
 
 app.get('/*', function(req, res) {
