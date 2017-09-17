@@ -33,7 +33,11 @@
   <tbody>
     <tr *ngFor="let discovery of discoveries; let i = index">
       <td>{{i}}</td>
-      <td>{{discovery.discovery.distance | number}} LY</td>
+      <td>
+        <inline-edit [(ngModel)]="discovery.discovery.distance" label="Distance" [required]="true" type="number" step="0.01" (input)="saveDiscovery(discovery)">
+          {{discovery.discovery.distance || 0 | number}} LY
+        </inline-edit>
+      </td>
       <td>{{discovery.planet.name}}</td>
       <td>{{discovery.discovery.date | date:'longDate'}}</td>
       <td>{{discovery.discovery.time | duration}}</td>
@@ -49,7 +53,13 @@
       </ng-template>
       <ng-template #noDiscoveryBoost><td>-</td><td>-</td></ng-template>
 
-      <td>{{discovery.level || '-'}}</td>
+      <td class="level no-break" *ngIf="discovery.level; else noLevel">
+        <a *ngIf="discovery.level > 1" href class="action" (click)="decrementLevel($event, discovery)">-</a>
+        {{discovery.level}}
+        <a *ngIf="discovery.level < 7" href class="action" (click)="incrementLevel($event, discovery)">+</a>
+      </td>
+      <ng-template #noLevel><td>-</td></ng-template>
+
       <td>{{discovery.population | number}}</td>
 
       <ng-template [ngIf]="discovery.upgrade" [ngIfElse]="noUpgrade">

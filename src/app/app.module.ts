@@ -13,6 +13,7 @@ import { EpicService } from './epics/epic.service';
 import { GameProgressComponent } from './wids/game-progress/game-progress.component';
 import { GameProgressResolve } from './wids/game-progress/game-progress-resolve.service';
 import { HomeComponent } from './home/home.component';
+import { InlineEditComponent } from './forms/inline-edit/inline-edit.component';
 import { MissionService } from './missions/mission.service';
 import { MyPlanetsComponent } from './planets/my-planets/my-planets.component';
 import { MyPlanetsResolve } from './planets/my-planets/my-planets-resolve.service';
@@ -80,6 +81,7 @@ const appRoutes: Routes = [
     DurationPipe,
     GameProgressComponent,
     HomeComponent,
+    InlineEditComponent,
     MyPlanetsComponent,
     PlanetListComponent,
     PlanetsComponent,

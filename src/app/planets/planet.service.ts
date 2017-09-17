@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Http, Response } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { Planet, Discovery } from './planet';
 import { WidService } from '../wids/wid.service';
 import { ApiService } from '../api.service';
@@ -30,7 +30,7 @@ export class PlanetService {
     return Observable.throw(errMsg);
   }
 
-  getPlanets(): Observable<[Planet]> {
+  getPlanets(): Observable<Planet[]> {
     return this.as.hydrateList(
       this.http.get(`//${environment.apiUrl}/api/planets`)
         .map(res => res.json())
@@ -39,8 +39,19 @@ export class PlanetService {
     );
   }
 
-  getDiscoveredPlanets(wid: String): Observable<[Discovery]> {
+  getDiscoveredPlanets(wid: String): Observable<Discovery[]> {
     return this.ws.getWidInfo(wid)
-      .pluck('planets');
+      .pluck('planets')
+      .catch(this.handleError)
+  }
+
+  saveDiscovery(discovery: Discovery): Observable<Discovery> {
+    return this.http.put(
+      discovery.url+'', // String -> string
+      JSON.stringify(discovery),
+      { headers: new Headers({ 'Content-Type': 'application/json' }) }
+    )
+      .map(res => res.json())
+      .catch(this.handleError);
   }
 }

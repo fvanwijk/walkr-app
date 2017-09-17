@@ -9,7 +9,7 @@ export interface Wid {
   title: String,
   level: Number,
   core: Core,
-  planets: [Discovery],
-  dfrs: [Wid],
-  missions: [Mission]
+  planets: Discovery[],
+  dfrs: Wid[],
+  missions: Mission[]
 }
