@@ -31,15 +31,19 @@
     </tr>
   </thead>
   <tbody>
-      <td>
-        <inline-edit [(ngModel)]="discovery.discovery.distance" label="Distance" [required]="true" type="number" step="0.01" (input)="saveDiscovery(discovery)">
     <tr *ngFor="let discovery of discoveries">
       <td>{{discovery.index}}</td>
+      <td class="no-break">
+        <inline-edit [(ngModel)]="discovery.discovery.distance" label="Distance" [required]="true" type="number" step="0.01" (change)="saveDiscovery(discovery)">
           {{discovery.discovery.distance || 0 | number}} LY
         </inline-edit>
       </td>
       <td>{{discovery.planet.name}}</td>
-      <td>{{discovery.discovery.date | date:'longDate'}}</td>
+      <td>
+        <inline-edit [(ngModel)]="discovery.discovery.date" label="Discovery date" [required]="true" type="date" (change)="saveDiscovery(discovery)">
+          {{discovery.discovery.date | date:'longDate'}}
+        </inline-edit>
+      </td>
       <td>{{discovery.discovery.time | duration}}</td>
 
       <td class="no-break" *ngIf="discovery.upgrade; else noDiscoveryPrice">
