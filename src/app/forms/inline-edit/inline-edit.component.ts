@@ -16,9 +16,10 @@ const INLINE_EDIT_CONTROL_VALUE_ACCESSOR = {
 })
 export class InlineEditComponent implements ControlValueAccessor, OnInit {
 
-  @ViewChild('inlineEditControl') inlineEditControl; // input DOM element
+  @ViewChild('inlineEditControl') inlineEditControl;
   @Input() label: string = '';
   @Input() type: string = 'text';
+  @Input() step: Number;
   @Input() required: boolean = false;
   @Input() disabled: boolean = false;
 

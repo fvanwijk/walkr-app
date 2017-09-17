@@ -1,6 +1,6 @@
 <div>
   <div *ngIf="editing" class="ui mini input">
-    <input #inlineEditControl [required]="required" (blur)="onBlur($event)" [name]="value" [(ngModel)]="value" [type]="type" [placeholder]="label" />
+    <input #inlineEditControl [required]="required" (blur)="onBlur($event)" [name]="value" [(ngModel)]="value" [type]="type" [step]="step" [placeholder]="label" />
   </div>
   <div *ngIf="!editing">
     <span title="Click to edit" (click)="edit(value)" (focus)="edit(value);" tabindex="0" class="inline-edit"><ng-content></ng-content></span>
