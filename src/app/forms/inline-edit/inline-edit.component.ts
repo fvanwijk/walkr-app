@@ -1,5 +1,6 @@
 import { Component, forwardRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 const INLINE_EDIT_CONTROL_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
@@ -9,7 +10,7 @@ const INLINE_EDIT_CONTROL_VALUE_ACCESSOR = {
 
 @Component({
   selector: 'inline-edit',
-  providers: [INLINE_EDIT_CONTROL_VALUE_ACCESSOR],
+  providers: [INLINE_EDIT_CONTROL_VALUE_ACCESSOR, DatePipe],
   templateUrl: './inline-edit.component.html',
   styles: []
 })
@@ -27,18 +28,21 @@ export class InlineEditComponent implements ControlValueAccessor, OnInit {
   public onChange: any = Function.prototype;
   public onTouched: any = Function.prototype;
 
-  constructor() { }
+  constructor(private datePipe: DatePipe = new DatePipe('en-US')) { }
 
   ngOnInit() {
   }
 
   // Control Value Accessors for ngModel
   get value(): any {
-    return this._value;
+    return this.type == 'date' ? this.datePipe.transform(this._value, 'yyyy-MM-dd') : this._value;
   }
 
   set value(v: any) {
     if (v !== this._value) {
+      if (this.type == 'date') {
+        v = new Date(v).toJSON();
+      }
       this._value = v;
       this.onChange(v);
     }
