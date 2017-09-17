@@ -46,9 +46,29 @@ body {
 
 a {
     padding: 0 2px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.4s;
+}
+
+a:hover {
+    border-bottom-color: #4183C4;
+    color: #4183C4;
+}
+
+a.action {
+    background: rgba(53, 81, 90, 0.75);
+    border: rgba(145, 215, 220, 0.7) 1px solid;
+    color: #ddd;
+    padding: 0 3px;
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.15);
+}
+.inline-edit {
+    cursor: pointer;
+    padding-bottom: 2px;
+    border-bottom: rgba(145, 215, 220, 0.7) 1px dashed;
+}
+.inline-edit:hover {
+    border-color: rgba(255, 255, 255, 0.7);
 }
 
 /* Segments */
