@@ -22,6 +22,7 @@ import { PlanetsResolve } from './planets/planet-list/planets-resolve.service';
 import { PlanetsComponent } from './planets/planets.component';
 import { PlanetService } from './planets/planet.service';
 import { PlanetUpgradeChartComponent } from './wids/game-progress/planet-upgrade-chart/planet-upgrade-chart.component';
+import { ReflectionRewardsComponent } from './wids/game-progress/reflection-rewards/reflection-rewards.component';
 import { SatellitesComponent } from './planets/satellites/satellites.component';
 import { SatellitesResolve } from './planets/satellites/satellites-resolve.service';
 import { ShipListComponent } from './ships/ship-list/ship-list.component';
@@ -86,6 +87,7 @@ const appRoutes: Routes = [
     PlanetListComponent,
     PlanetsComponent,
     PlanetUpgradeChartComponent,
+    ReflectionRewardsComponent,
     SatellitesComponent,
     ShipListComponent
   ],
