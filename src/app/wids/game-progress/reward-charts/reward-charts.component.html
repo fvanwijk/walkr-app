@@ -1,0 +1,43 @@
+<div>
+  <h2 class="ui inverted header">"Reflections from home" rewards</h2>
+  <reflections-percentage-rewards [data]="rewards"></reflections-percentage-rewards>
+  <reflection-rewards [data]="rewards"></reflection-rewards>
+
+  <table class="ui basic inverted unstackable table">
+    <thead>
+      <tr>
+        <th colspan="3"></th>
+        <th colspan="4">Donated</th>
+        <th colspan="4">Donated in coins</th>
+      </tr>
+      <tr>
+        <th>Completion date</th>
+        <th>Percentage</th>
+        <th>Reward</th>
+        <th>Energy</th>
+        <th>Coins</th>
+        <th>Food</th>
+        <th>Resources</th>
+        <th>Energy</th>
+        <th>Coins</th>
+        <th>Food</th>
+        <th>Resources</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rewards | async">
+        <td>{{row.completion_date | date}}</td>
+        <td>{{row.percentage | number:'1.2-2'}} %</td>
+        <td><i class="walkr coin icon"></i> {{row.reward.total | number:'1.0-0'}}</td>
+        <td>⚡ {{row.energy | number}}</td>
+        <td><i class="walkr coin icon"></i> {{row.coins | number}}</td>
+        <td><i class="walkr food icon"></i> {{row.food | number}}</td>
+        <td>{{row.resources | number}}</td>
+        <td><i class="walkr coin icon"></i> {{row.reward.energy | number}}</td>
+        <td><i class="walkr coin icon"></i> {{row.reward.coins | number}}</td>
+        <td><i class="walkr coin icon"></i> {{row.reward.food | number}}</td>
+        <td><i class="walkr coin icon"></i> {{row.reward.resources | number}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

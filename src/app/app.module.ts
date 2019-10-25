@@ -23,6 +23,8 @@ import { PlanetsComponent } from './planets/planets.component';
 import { PlanetService } from './planets/planet.service';
 import { PlanetUpgradeChartComponent } from './wids/game-progress/planet-upgrade-chart/planet-upgrade-chart.component';
 import { ReflectionRewardsComponent } from './wids/game-progress/reflection-rewards/reflection-rewards.component';
+import { ReflectionsPercentageRewardsComponent } from './wids/game-progress/reflections-percentage-rewards/reflections-percentage-rewards.component';
+import { RewardChartsComponent } from './wids/game-progress/reward-charts/reward-charts.component';
 import { SatellitesComponent } from './planets/satellites/satellites.component';
 import { SatellitesResolve } from './planets/satellites/satellites-resolve.service';
 import { ShipListComponent } from './ships/ship-list/ship-list.component';
@@ -88,6 +90,8 @@ const appRoutes: Routes = [
     PlanetsComponent,
     PlanetUpgradeChartComponent,
     ReflectionRewardsComponent,
+    ReflectionsPercentageRewardsComponent,
+    RewardChartsComponent,
     SatellitesComponent,
     ShipListComponent
   ],
